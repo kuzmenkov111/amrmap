@@ -1,4 +1,4 @@
-FROM kuzmenkov/mro:latest
+FROM kuzmenkov/amrmapbasic:latest
 
 # basic shiny functionality
 RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
