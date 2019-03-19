@@ -6,7 +6,6 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 #RUN R -e "download.file(url = 'http://cran.r-project.org/src/contrib/Archive/highcharter/highcharter_0.3.0.tar.gz', destfile = 'highcharter_0.3.0.tar.gz')"
 #RUN R -e "install.packages(pkgs='highcharter_0.3.0.tar.gz', type='source', repos=NULL)"
 #RUN R -e "unlink('highcharter_0.3.0.tar.gz')"
-&& R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('data.table', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('maptools', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('rgdal', repos='https://cran.r-project.org/')" \
@@ -56,7 +55,10 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ipc', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('Hmisc', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RcppTOML', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('configr', repos='https://cran.r-project.org/')"
+&& R -e "install.packages('configr', repos='https://cran.r-project.org/')" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('dreamRs/shinyparticles')\"" \
+&& R -e "install.packages('arules', repos='https://cran.r-project.org/')" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('JohnCoene/waiter')\""
 
 
 #volume for Shiny Apps and static assets. Here is the folder for index.html(link) and sample apps.
