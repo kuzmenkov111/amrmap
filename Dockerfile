@@ -14,8 +14,8 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('callr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('future.callr', repos='https://cran.r-project.org/')" \
 #&& R sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('HenrikBengtsson/future.callr')\""\
-&& R -e "install.packages('tidyr', repos='https://cran.r-project.org/')"\
-&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('daattali/timevis')\""\
+&& R -e "install.packages(c('tidyr','timevis'), repos='https://cran.r-project.org/')"\
+#&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('daattali/timevis')\""\
 && R -e "install.packages('shinythemes', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('formattable', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('fst', repos='https://cran.r-project.org/')" \
@@ -36,12 +36,12 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('raster', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('digest', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('bcrypt', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('kuzmenkov111/qrencoder')\"" \
+&& sudo su - -c "R -e \"remotes::install_git('https://github.com/kuzmenkov111/qrencoder')\"" \
 && R -e "install.packages('rgdal', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('ggrepel', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('mapview', repos='https://cran.r-project.org/')" \
 && R CMD javareconf \
-&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre'); install.packages('rJava', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('rJava', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('mailR', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RPostgres', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('stringi', repos='https://cran.r-project.org/')" \
@@ -56,9 +56,9 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('Hmisc', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RcppTOML', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('configr', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('dreamRs/shinyparticles')\"" \
+&& sudo su - -c "R -e \"remotes::install_git('https://github.com/kuzmenkov111/shinyparticles')\"" \
 && R -e "install.packages('arules', repos='https://cran.r-project.org/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('JohnCoene/waiter')\""
+&& sudo su - -c "R -e \"remotes::install_git('https://github.com/kuzmenkov111/waiter')\""
 
 
 #volume for Shiny Apps and static assets. Here is the folder for index.html(link) and sample apps.
