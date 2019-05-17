@@ -60,7 +60,6 @@ RUN R -e "install.packages('shinyBS', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('arules', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"remotes::install_git('https://github.com/kuzmenkov111/waiter')\""
 
-
 #volume for Shiny Apps and static assets. Here is the folder for index.html(link) and sample apps.
 VOLUME /home/docker
 EXPOSE 3838
